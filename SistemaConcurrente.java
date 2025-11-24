@@ -1,15 +1,36 @@
 package practica3;
 
 /**
- * Clase principal que coordina el sistema concurrente
+ * Sistema concurrente productor-consumidor que demuestra el uso de semáforos.
+ * Utiliza múltiples threads escritores (productores) y lectores (consumidores) 
+ * que interactúan a través de una cola concurrente sincronizada.
+ * 
+ * @author Manolaken
+ * @version 1.0
  */
 public class SistemaConcurrente {
+    /** Capacidad máxima de la cola compartida */
     private static final int CAPACIDAD_COLA = 10;
+    
+    /** Número de threads escritores (productores) */
     private static final int NUM_ESCRITORES = 4;
+    
+    /** Número de threads lectores (consumidores) */
     private static final int NUM_LECTORES = 5;
+    
+    /** Cantidad de mensajes que cada escritor producirá */
     private static final int MENSAJES_POR_ESCRITOR = 8;
+    
+    /** Cantidad de mensajes que cada lector consumirá */
     private static final int MENSAJES_POR_LECTOR = 6;
     
+    /**
+     * Método principal que ejecuta el sistema concurrente.
+     * Crea una cola concurrente, lanza múltiples threads escritores y lectores,
+     * y coordina su ejecución hasta que todos terminen.
+     * 
+     * @param args Argumentos de línea de comandos (no utilizados)
+     */
     public static void main(String[] args) {
         System.out.println("=== SISTEMA PRODUCTOR-CONSUMIDOR CON SEMÁFOROS ===");
         System.out.println("Capacidad de la cola: " + CAPACIDAD_COLA);
